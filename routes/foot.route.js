@@ -7,6 +7,7 @@ var router = express.Router();
 var request = require('request')
 const config = require('../config')
 var CompetitionController = require('../controllers/competition.controller');
+var MatchController = require('../controllers/match.controller');
 var Competition = require('../models/competition');
 var Request = require('../controllers/requesthttp')
 
@@ -16,6 +17,15 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 
+router.get('/dailymatchs',async(req,res)=>{
+    const matchs = await MatchController.getMatchOfTheDay();
+    if(matchs === null){
+        res.json({
+            message : "erreur lors du chargement des données"
+        });
+    }
+     res.json(matchs);
+});
 router.get('/competitions/:id',async (req,res)=>{
     const competitions = await CompetitionController.getById(req.params.id);
     if(competitions === null){
