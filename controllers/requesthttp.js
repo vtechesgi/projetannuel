@@ -4,8 +4,26 @@ const request = require('request');
 const config = require('../config');
 const CompetitionController = require('./competition.controller');
 const MatchController = require('./match.controller');
+const TeamController = require('./team.controller');
 
 class Request{
+    allTeam(){
+        var options = {
+            json : true,
+            uri:"https://api.football-data.org/v2/teams",
+            headers : {
+              'X-Auth-Token' : config.token
+            }
+        };
+        function callback(error, response, body) {
+          if (!error && response.statusCode == 200) {
+            for(var i = 0;i < body.count; i++ ){
+              TeamController.createTeam(body.teams[i]['id'],body.teams[i]['area'],body.teams[i]['name'],body.teams[i]['shortName'],body.teams[i]['tla'],body.teams[i]['address'],body.teams[i]['phone'],body.teams[i]['website'],body.teams[i]['email'],body.teams[i]['founded'],body.teams[i]['clubColors'],body.teams[i]['venue'],body.teams[i]['lastUpdated']);
+            }
+          }
+        }
+        request(options,callback);
+    }
     allcompetitions(){
         var options = {
             json: true,

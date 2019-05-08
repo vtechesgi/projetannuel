@@ -16,6 +16,24 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 
+router.get('/teams',async(req,res)=>{
+  MongoClient.connect(url, {useNewUrlParser: true},function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("currentfoot");
+    //Delete the "customers" collection:
+    dbo.collection("teams").drop(function(err, delOK) {
+      if (delOK){
+        console.log("Collection deleted");
+      } 
+      Request.allTeam();
+      res.json({
+        message: "Récupération des données réussies",
+        status: 200
+    });
+      db.close();
+    });
+  });
+})
 router.get('/matches',async (req,res)=>{
   var before = false;
   MongoClient.connect(url, {useNewUrlParser: true},function(err, db) {

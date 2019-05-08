@@ -8,6 +8,7 @@ var request = require('request')
 const config = require('../config')
 var CompetitionController = require('../controllers/competition.controller');
 var MatchController = require('../controllers/match.controller');
+var TeamController = require('../controllers/team.controller');
 var Competition = require('../models/competition');
 var Request = require('../controllers/requesthttp')
 
@@ -17,6 +18,15 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 
+router.get('/teams',async(req,res)=>{
+    const teams = await TeamController.getAll();
+    if(teams === null){
+        res.json({
+            message : "erreur lors du chargement des données"
+        })
+    }
+    res.json(teams);
+});
 router.get('/dailymatchs',async(req,res)=>{
     const matchs = await MatchController.getMatchOfTheDay();
     if(matchs === null){
