@@ -16,6 +16,18 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 
+router.get('/teams/:id',async (req,res)=>{
+  request({
+    json : true,
+    uri: "https://api.football-data.org/v2/teams/" + req.params.id,
+    headers : {
+      'X-Auth-Token' : config.token
+    }
+  }, (err, result, body) => {
+  if (err) { return console.log(err); }
+  res.json(body.squad) ;
+  });
+})
 router.get('/teams',async(req,res)=>{
   MongoClient.connect(url, {useNewUrlParser: true},function(err, db) {
     if (err) throw err;
