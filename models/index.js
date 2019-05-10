@@ -6,6 +6,7 @@ module.exports = {
     Match : require('./match'),
     MatchOfTheDay : require('./matchofDay'),
     Team : require('./team'),
+    Tchat : require('./tchat'),
     // Attraction : require('./Attraction'),
     // nameDay : require('./nameDay'),
     // StatByDay : require('./StatByDay'),
