@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-    User : require('./User'),
+    User : require('./user'),
     Competition : require('./competition'),
     Match : require('./match'),
     MatchOfTheDay : require('./matchofDay'),
