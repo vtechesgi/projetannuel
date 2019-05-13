@@ -24,8 +24,12 @@ router.get('/teams/:id',async (req,res)=>{
       'X-Auth-Token' : config.token
     }
   }, (err, result, body) => {
-  if (err) { return console.log(err); }
-  res.json(body.squad) ;
+  if (err) { 
+    res.json({
+      message : "Probleme de récupération des données."
+    })
+   }
+   else res.json(body.squad) ;
   });
 })
 router.get('/teams',async(req,res)=>{
@@ -76,8 +80,12 @@ router.get('/competitions/:id/matches',async(req,res)=>{    //matchs par competi
       'X-Auth-Token' : config.token
     }
   }, (err, result, body) => {
-  if (err) { return console.log(err); }
-  res.json(body.matches) ;
+  if (err) { 
+    res.json({
+    message : "Probleme de récupération des données."
+    }) 
+  }
+  else res.json(body.matches) ;
   });
 })
 router.get('/competitions/:id/standings',async(req,res)=>{      //classement par comeptition
@@ -88,8 +96,12 @@ router.get('/competitions/:id/standings',async(req,res)=>{      //classement par
       'X-Auth-Token' : config.token
     }
   }, (err, result, body) => {
-  if (err) { return console.log(err); }
-  res.json(body.standings) ;
+  if (err) { 
+    res.json({
+      message : "Probleme de récupération des données."
+    })
+  }
+  else res.json(body.standings) ;
   });
 })
 router.get('/competitions/:id/scorers',async(req,res)=>{      //buts par competitions
@@ -100,8 +112,12 @@ router.get('/competitions/:id/scorers',async(req,res)=>{      //buts par competi
       'X-Auth-Token' : config.token
     }
   }, (err, result, body) => {
-  if (err) { return console.log(err); }
-  res.json(body.scorers) ;
+  if (err) {
+    res.json({
+      message : "Probleme de récupération des données."
+    })
+  }
+  else res.json(body.scorers) ;
   });
 })
 router.get('/competitions/:id/teams',async(req,res)=>{    //team par competitions
@@ -112,8 +128,12 @@ router.get('/competitions/:id/teams',async(req,res)=>{    //team par competition
       'X-Auth-Token' : config.token
     }
   }, (err, result, body) => {
-  if (err) { return console.log(err); }
-  res.json(body.teams) ;
+  if (err) { 
+    res.json({
+      message : "Probleme de récupération des données."
+    })
+  }
+  else res.json(body.teams) ;
   });
 })
 router.get('/competitions',async(req,res)=>{            //competitions
