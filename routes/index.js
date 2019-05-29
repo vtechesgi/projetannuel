@@ -6,6 +6,7 @@ class RouterBuilder {
         app.use('/auth',require('./auth.route'));
         app.use('/api',require('./datahtpp.route'));
         app.use('/foot',require('./foot.route'));
+        app.use('/admin',require('./admin.route'));
     }
 }
 
