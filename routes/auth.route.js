@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
-// const User = require('../models').User;
+const User = require('../models').User;
 //const User = require('../models').User
 const UserController = require('../controllers/user.controller')
 const verifyValueController = require('../controllers/verifyValue')
