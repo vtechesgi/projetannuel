@@ -74,7 +74,7 @@ router.get('/matches',async (req,res)=>{
     if (err) throw err;
     var dbo = db.db("currentfoot");
     //Delete the "customers" collection:
-    dbo.collection("matchOfTheDay").drop(function(err, delOK) {
+    dbo.collection("matchofdays").drop(function(err, delOK) {
       if (delOK){
         console.log("Collection deleted");
       } 
