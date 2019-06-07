@@ -46,7 +46,7 @@ router.get('/teams/:id',async (req,res)=>{
       message : "Probleme de récupération des données."
     })
    }
-   else res.json(body.squad) ;
+   else res.json(body) ;
   });
 })
 router.get('/teams',async(req,res)=>{
@@ -78,11 +78,22 @@ router.get('/matches',async (req,res)=>{
       if (delOK){
         console.log("Collection deleted");
       } 
-      Request.matchoftheDay();
-      res.json({
-        message: "Récupération des données réussies",
-        status: 200
-    });
+      const result = Request.matchoftheDay();
+      Request.matchoftheDay(function(result,err){
+        if(result){
+          res.json({
+            message: "Récupération des données réussies",
+            status: 200
+        });
+        if(err){
+          res.json({
+            message: err,
+            status: 404
+        });
+        }
+        }
+      });
+      
       db.close();
     });
   });

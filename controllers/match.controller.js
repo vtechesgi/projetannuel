@@ -16,7 +16,7 @@ class MatchController{
 
         return newMatch;
     };
-    createMatchOfDay(id,competition,season,utcDate,status,stage,group,lastUpdated,homeTeam,awayTeam,score){
+    async createMatchOfDay(id,competition,season,utcDate,status,stage,group,lastUpdated,homeTeam,awayTeam,score){
         var newMatch = new MatchOfTheDay({
             id : id,
             competition : competition,
