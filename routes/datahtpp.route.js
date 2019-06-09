@@ -99,8 +99,24 @@ router.get('/matches',async (req,res)=>{
   });
     
 })
+router.get('/matchs/:id/',async(req,res)=>{    //matchs par id
+  request({
+    json : true,
+    uri: "https://api.football-data.org/v2/matches/" + req.params.id,
+    headers : {
+      'X-Auth-Token' : config.token
+    }
+  }, (err, result, body) => {
+  if (err) { 
+    res.json({
+    message : "Probleme de récupération des données."
+    }) 
+  }
+  else res.json(body.matches) ;
+  });
+})
 /////////////////COMPETITIONS///////////////
-router.get('/competitions/:id/matches',async(req,res)=>{    //matchs par competition
+router.get('/competitions/:id/matchs',async(req,res)=>{    //matchs par competition
   request({
     json : true,
     uri: "https://api.football-data.org/v2/competitions/" + req.params.id + "/matches",
