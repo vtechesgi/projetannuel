@@ -112,7 +112,7 @@ router.get('/matchs/:id/',async(req,res)=>{    //matchs par id
     message : "Probleme de récupération des données."
     }) 
   }
-  else res.json(body.matches) ;
+  else res.json(body) ;
   });
 })
 /////////////////COMPETITIONS///////////////
