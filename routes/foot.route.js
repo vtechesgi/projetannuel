@@ -6,6 +6,8 @@ var express = require('express');
 var router = express.Router();
 var request = require('request')
 const config = require('../config')
+var TchatController = require('../controllers/tchat.controller');
+var UserController = require('../controllers/user.controller');
 var CompetitionController = require('../controllers/competition.controller');
 var MatchController = require('../controllers/match.controller');
 var TeamController = require('../controllers/team.controller');
@@ -18,6 +20,13 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 
+router.get('/matchs/:id/tchat',async(req,res)=>{
+    const tchat = await TchatController.getById(req.params.id)
+    if(tchat === null){
+        tchat = await TchatController.createTchat(req.params.id);
+    }
+    res.json(tchat.viewers);
+})
 router.get('/teams',async(req,res)=>{
     const teams = await TeamController.getAll();
     if(teams === null){

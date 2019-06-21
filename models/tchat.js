@@ -4,8 +4,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = mongoose.model('Tchat', new Schema({ 
-        id : 'Number',
-        name : String,
         idMatch : 'Number',
         viewers:[
             {
