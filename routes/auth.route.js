@@ -62,6 +62,7 @@ router.post('/login',async(req,res)=>{
 
                 res.json({
                     success: true,
+                    user : user,
                     message: 'Authentification reussie',
                     token: token
                   });

@@ -23,5 +23,12 @@ class UserController{
             _id : id
         });
     };
+    async getByLog(name,password){
+        
+        return User.findOne({
+            email:name,
+            password:password
+        })
+    }
 }
 module.exports = new UserController();
