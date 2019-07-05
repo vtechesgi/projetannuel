@@ -1,0 +1,96 @@
+{
+    "player": [
+        {
+            "id": 1,
+            "lastname": "Zinedine",
+            "firstname": "Zidane",
+            "pos": "MIL",
+            "team": 1,
+            "age": 36
+        },
+        {
+            "id": 2,
+            "lastname": "Thierry",
+            "firstname": "Henry",
+            "pos": "ATT",
+            "team": 2,
+            "age": 34
+        },
+        {
+            "id": 3,
+            "lastname": "Claude",
+            "firstname": "Makelele",
+            "pos": "MIL",
+            "team": 3,
+            "age": 36
+        },
+        {
+            "id": 4,
+            "lastname": "Fabien",
+            "firstname": "Bartheze",
+            "pos": "Goal",
+            "team": 4,
+            "age": 36
+        },
+        {
+            "id": 5,
+            "lastname": "Lilian",
+            "firstname": "Thuram",
+            "pos": "DEF",
+            "team": 2,
+            "age": 31
+        },
+        {
+            "id": 6,
+            "lastname": "Patrick",
+            "firstname": "Vieira",
+            "pos": "MIL",
+            "team": 2,
+            "age": 34
+        },
+        {
+            "id": 7,
+            "lastname": "Franck",
+            "firstname": "Ribery",
+            "pos": "ATT",
+            "team": 4,
+            "age": 34
+        }
+    ],
+    "team": [
+        {
+            "id": 1,
+            "name": "REAL MADRID",
+            "ligue": 1    
+        },
+        {
+            "id": 2,
+            "name": "ARSENAL",
+            "ligue": 2    
+        },
+        {
+            "id": 3,
+            "name": "CHELSEA",
+            "ligue": 2    
+        },
+        {
+            "id": 4,
+            "name": "MARSEILLE",
+            "ligue": 3    
+        }
+    ],
+    "ligue": [
+        {
+            "id": 1,
+            "name": "LIGA"   
+        },
+        {
+            "id": 2,
+            "name": "PREMIER LEAGUE" 
+        },
+        {
+            "id": 3,
+            "name": "LIGUE1"  
+        }
+    ]
+}
